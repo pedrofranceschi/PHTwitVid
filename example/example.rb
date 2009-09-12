@@ -1,5 +1,5 @@
-require '../lib/phtwitvid.rb'
-# require 'phtwitvid'
+# require '../lib/phtwitvid.rb'
+require 'phtwitvid'
 
 puts "TwitVid Username: "
 username = gets.chomp

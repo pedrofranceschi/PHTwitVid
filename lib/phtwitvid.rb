@@ -36,5 +36,12 @@ class PHTwitVid
     xml = XmlSimple.xml_in(response.body, { 'KeyAttr' => 'name' })
     return xml['media_url']
   end
-        
+  
+  def delete(token, video_id)
+    params = { :query => {:token => token, :media_id => video_id}}
+    response = HTTParty.post("#{$api_url}/delete", params)
+    xml = XmlSimple.xml_in(response.body, { 'KeyAttr' => 'name' })
+    return xml['rsp stat']
+  end
+      
 end

@@ -6,8 +6,8 @@ A Library for TwitVid integration written in Ruby.
 
 == INSTALL:
 
- gem sources -a http://gems.github.com
-　sudo gem install pedrofranceschi-phtwitvid
+  gem sources -a http://gems.github.com
+  sudo gem install pedrofranceschi-phtwitvid
 
 == SYNOPSIS:
 

@@ -43,5 +43,17 @@ class PHTwitVid
     xml = XmlSimple.xml_in(response.body, { 'KeyAttr' => 'name' })
     return xml['rsp stat']
   end
+  
+  def embed(video_id, width, height)
+    if width == nil || height == nil
+      width = '425'
+      height = '344'
+    end
+    return "<object width=\"#{width}\" height=\"#{height}\">
+         <param name=\"movie\" value=\"http://www.twitvid.com/player/#{video_id}>\"></param>
+         <param name=\"allowFullScreen\" value=\"true\"></param>
+         <embed type=\"application/x-shockwave-flash\" src=\"http://www.twitvid.com/player/#{video_id}\" quality=\"high\" allowscriptaccess=\"always\" allowNetworking=\"all\"      allowfullscreen=\"true\" wmode=\"transparent\" height=\"#{height}\" width=\"#{width}\">
+    </object>"
+  end
       
 end

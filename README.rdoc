@@ -42,7 +42,7 @@ And, ofcourse, you can get the media_url, for example, using:
 
 == TODO:
 
-* Error handling
+* Implement other TwitVid's API functions.
 
 == ABOUT:
 

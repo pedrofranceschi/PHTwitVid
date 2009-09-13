@@ -26,7 +26,7 @@ end
 puts
 puts
 puts "We are uploading your video..."
-video_url = twitvid.upload(myToken, description, video_path, type)
+video_url = twitvid.upload(myToken, description, video_path, type, '<a href=http://github.com/pedrofranceschi/PHTwitVid>PHTwitVid</a>')
 puts
 puts "Your Video was successfully uploaded!"
 puts "Video URL: #{video_url['media_url']}"

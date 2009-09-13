@@ -22,7 +22,7 @@ class PHTwitVid
   end
   end
   
-  def upload(token, message, video_path, post)
+  def upload(token, message, video_path, post, source)
     f = File.new(video_path, File::RDWR)
     agent = WWW::Mechanize.new
     response = agent.post(
@@ -30,7 +30,8 @@ class PHTwitVid
         {
              :media      =>  f,
              :token      =>  token,
-             :message    =>  message
+             :message    =>  message,
+             :source     =>  source
         }
     )
     f.close

@@ -1,0 +1,52 @@
+= PHTwitVid
+
+== DESCRIPTION:
+
+A Library for TwitVid integration written in Ruby.
+
+== INSTALL:
+
+ gem sources -a http://gems.github.com
+　sudo gem install pedrofranceschi-phtwitvid
+
+== SYNOPSIS:
+
+ >> require 'phtwitvid'
+
+The Library needs to be initialized:
+
+ >> twitvid = PHTwitVid.new
+
+You need to get an API token:
+
+ >> myToken = twitvid.get_token('username', 'password')
+
+To upload a video, is simple:
+
+ >> video = twitvid.upload(myToken, 'This is a cool video.', "/path/to/video/file/video-1.mp4", "upload")
+
+Will be returned an array that have two values: media_id and media_url:
+
+ => {"media_id"=>"2CB38", "media_url"=>"http://twitvid.com/2CB38"}
+
+And, ofcourse, you can get the media_url, for example, using:
+ 
+ >> myVideoURL = video['media_url']
+ => "http://twitvid.com/2CB38"
+
+== REQUIREMENTS:
+
+* httparty
+* xmlsimple
+* mechanize
+
+== TODO:
+
+* Error handling
+
+== ABOUT:
+
+2009 (C)
+Developed by pH (Pedro Henrique Cavallieri Franceschi)
+You can find me at pedrohfranceschi@gmail.com.
+www.iBlogeek.com - 2006-2009 (C)

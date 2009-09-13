@@ -21,7 +21,7 @@ class PHTwitVid
   end
   end
   
-  def upload(token, message, video_path, post)  
+  def upload(token, message, video_path, post)
     f = File.new(video_path, File::RDWR)
     agent = WWW::Mechanize.new
     response = agent.post(

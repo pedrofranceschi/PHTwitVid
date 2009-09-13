@@ -34,7 +34,7 @@ class PHTwitVid
     )
     f.close
     xml = XmlSimple.xml_in(response.body, { 'KeyAttr' => 'name' })
-    return xml['media_url']
+    return {'media_url' => xml['media_url'].to_s, 'media_id' => xml['media_id'].to_s}
   end
   
   def delete(token, video_id)

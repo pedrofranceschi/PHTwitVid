@@ -1,5 +1,4 @@
-# require '../lib/phtwitvid.rb'
-require 'phtwitvid'
+require 'lib/phtwitvid.rb'
 
 puts "TwitVid Username: "
 username = gets.chomp
@@ -30,4 +29,4 @@ puts "We are uploading your video..."
 video_url = twitvid.upload(myToken, description, video_path, type)
 puts
 puts "Your Video was successfully uploaded!"
-puts "Video URL: #{video_url}"
+puts "Video URL: #{video_url['media_url']}"

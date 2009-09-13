@@ -55,5 +55,12 @@ class PHTwitVid
          <embed type=\"application/x-shockwave-flash\" src=\"http://www.twitvid.com/player/#{video_id}\" quality=\"high\" allowscriptaccess=\"always\" allowNetworking=\"all\"      allowfullscreen=\"true\" wmode=\"transparent\" height=\"#{height}\" width=\"#{width}\">
     </object>"
   end
+  
+  def create_playlist(token, playlist_name)
+    params = { :query => {:token => token, :playlistName => playlist_name}}
+    response = HTTParty.post("#{$api_url}/createPlaylist", params)
+    xml = XmlSimple.xml_in(response.body, { 'KeyAttr' => 'name' })
+    return {'playlist_url' => xml['playlist_url'].to_s, 'playlist_id' => xml['playlist_id'].to_s}
+  end
       
 end

@@ -2,6 +2,7 @@ require 'rubygems'
 require 'httparty'
 require 'xmlsimple'
 require 'mechanize'
+require 'open-uri'
 
 class PHTwitVid
   
@@ -68,5 +69,17 @@ class PHTwitVid
     response = HTTParty.post("#{$api_url}/getVideos", params)
     return response.body
   end
-      
+  
+  def get_thumbnail_url(video_id)
+    return "http://cdn.twitvid.com/thumbnails/#{video_id}.jpg"
+  end
+  
+  def profile(username)
+    unparsed_xml = open("http://www.twitter.com/users/show.xml?screen_name=#{username}");
+    xml = XmlSimple.xml_in(unparsed_xml, { 'KeyAttr' => 'name' })
+    return {'id' => xml['id'].to_s, 'name' => xml['name'].to_s, 'screen_name' => xml['screen_name'].to_s, 'location' => xml['location'].to_s,
+            'description' => xml['description'].to_s, 'url' => xml['url'].to_s, 'profile_image_url' => xml['profile_image_url'].to_s,
+            'followers' => xml['followers_count'].to_s, 'following' => xml['friends_count'].to_s, }
+  end
+    
 end

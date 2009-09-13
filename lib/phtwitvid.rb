@@ -62,5 +62,11 @@ class PHTwitVid
     xml = XmlSimple.xml_in(response.body, { 'KeyAttr' => 'name' })
     return {'playlist_url' => xml['playlist_url'].to_s, 'playlist_id' => xml['playlist_id'].to_s}
   end
+  
+  def get_uploaded_videos(token)
+    params = { :query => {:token => token}}
+    response = HTTParty.post("#{$api_url}/getVideos", params)
+    return response.body
+  end
       
 end

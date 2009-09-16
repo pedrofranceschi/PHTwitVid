@@ -6,9 +6,8 @@ require 'open-uri'
 
 class PHTwitVid
   
-  $api_url = "https://im.twitvid.com/api"
-  
   def initialize
+    $api_url = "https://im.twitvid.com/api"
   end
   
   def get_token(username, password)
